@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="Images">
+    <file>profits.jpg</file>
+    <file>expenses.jpg</file>
+    <file>money_background.jpg</file>
+  </qresource>
+  <qresource prefix="Icons">
+    <file>dollar.ico</file>
+  </qresource>
+</RCC>

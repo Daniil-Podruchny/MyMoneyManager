@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MyMoneyManager</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../Pictures/Images/add_expenses_form.qrc">
+    <normaloff>:/Icons/dollar.ico</normaloff>:/Icons/dollar.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>801</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>-6</x>
+       <y>-5</y>
+       <width>811</width>
+       <height>611</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../../Pictures/Images/add_expenses_form.qrc">:/Images/money_background.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QTabWidget" name="ControllMoneyTab">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>801</width>
+       <height>501</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTabBar::tab {
+	color: rgb(255, 255, 255);
+	background-color: rgb(120, 183, 140);
+}
+
+QTabBar::tab::selected {
+	background-color: rgb(120, 170, 140);
+}</string>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="expensesTab">
+      <attribute name="title">
+       <string>Добавить расход</string>
+      </attribute>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>-6</x>
+         <y>-5</y>
+         <width>811</width>
+         <height>481</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="../../Pictures/Images/add_expenses_form.qrc">:/Images/expenses.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_4">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>801</width>
+         <height>471</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QFrame" name="frame_5">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255,255,255);
+background: rgb(120, 183, 140);
+font: 20px;
+padding: 5px;
+border-radius: 10px;
+</string>
+             </property>
+             <property name="text">
+              <string>Название</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="expenseNameEdit">
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+	padding: 5px;
+	border: 2px solid rgb(120, 183, 140);;
+	border-radius: 10px;
+	font: 17px;
+}
+
+QLineEdit::hover {
+	border: 2px solid rgb(120, 155, 140);
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_6">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="QLabel" name="label_5">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255,255,255);
+background: rgb(120, 183, 140);
+font: 20px;
+padding: 5px;
+border-radius: 10px;</string>
+             </property>
+             <property name="text">
+              <string>Сумма</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="ExpenseSumEdit">
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+	padding: 5px;
+	border: 2px solid rgb(120, 183, 140);;
+	border-radius: 10px;
+	font: 17px;
+}
+
+QLineEdit::hover {
+	border: 2px solid rgb(120, 155, 140);
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_7">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <widget class="QLabel" name="label_6">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255,255,255);
+background: rgb(120, 183, 140);
+font: 20px;
+padding: 5px;
+border-radius: 10px;</string>
+             </property>
+             <property name="text">
+              <string>Дата покупки</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="expenseDateEdit">
+             <property name="styleSheet">
+              <string notr="true">QDateEdit {
+	padding: 5px;
+	border: 2px solid rgb(120, 183, 140);;
+	border-radius: 10px;
+	font: 17px;
+}
+
+QDateEdit::hover {
+	border: 2px solid rgb(120, 155, 140);
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_8">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QLabel" name="label_7">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255,255,255);
+background: rgb(120, 183, 140);
+font: 20px;
+padding: 5px;
+border-radius: 10px;</string>
+             </property>
+             <property name="text">
+              <string>Категория</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="expenseCategoryComboBox">
+             <property name="styleSheet">
+              <string notr="true">QComboBox {
+	padding: 5px;
+	border: 2px solid rgb(120, 183, 140);;
+	border-radius: 10px;
+	font: 17px;
+}
+
+QComboBox::hover {
+	border: 2px solid rgb(120, 155, 140);
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="profitTab">
+      <attribute name="title">
+       <string>Добавить доход</string>
+      </attribute>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>-6</x>
+         <y>-5</y>
+         <width>811</width>
+         <height>481</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="../../Pictures/Images/add_expenses_form.qrc">:/Images/profits.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_9">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>801</width>
+         <height>471</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_11">
+        <item>
+         <widget class="QFrame" name="frame_10">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_8">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255,255,255);
+background: rgb(120, 183, 140);
+font: 20px;
+padding: 5px;
+border-radius: 10px;</string>
+             </property>
+             <property name="text">
+              <string>Название</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="profitNameEdit">
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+	padding: 5px;
+	border: 2px solid rgb(120, 183, 140);;
+	border-radius: 10px;
+	font: 17px;
+}
+
+QLineEdit::hover {
+	border: 2px solid rgb(120, 155, 140);
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_11">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <widget class="QLabel" name="label_9">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255,255,255);
+background: rgb(120, 183, 140);
+font: 20px;
+padding: 5px;
+border-radius: 10px;</string>
+             </property>
+             <property name="text">
+              <string>Сумма</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="profitSumEdit">
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+	padding: 5px;
+	border: 2px solid rgb(120, 183, 140);;
+	border-radius: 10px;
+	font: 17px;
+}
+
+QLineEdit::hover {
+	border: 2px solid rgb(120, 155, 140);
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_12">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QLabel" name="label_10">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255,255,255);
+background: rgb(120, 183, 140);
+font: 20px;
+padding: 5px;
+border-radius: 10px;</string>
+             </property>
+             <property name="text">
+              <string>Дата заработка</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="profitDateEdit">
+             <property name="styleSheet">
+              <string notr="true">QDateEdit {
+	padding: 5px;
+	border: 2px solid rgb(120, 183, 140);;
+	border-radius: 10px;
+	font: 17px;
+}
+
+QDateEdit::hover {
+	border: 2px solid rgb(120, 155, 140);
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_13">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <widget class="QLabel" name="label_11">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255,255,255);
+background: rgb(120, 183, 140);
+font: 20px;
+padding: 5px;
+border-radius: 10px;</string>
+             </property>
+             <property name="text">
+              <string>Категория</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="profitCategoryEdit">
+             <property name="styleSheet">
+              <string notr="true">QComboBox {
+	padding: 5px;
+	border: 2px solid rgb(120, 183, 140);;
+	border-radius: 10px;
+	font: 17px;
+}
+
+QComboBox::hover {
+	border: 2px solid rgb(120, 155, 140);
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="frame_2">
+     <property name="geometry">
+      <rect>
+       <x>-1</x>
+       <y>499</y>
+       <width>801</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QFrame" name="frame_3">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="infoLbl">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;
+background-color: rgb(44, 153, 255);
+font: 15px;
+padding: 5px;
+border-radius: 10px;
+font-weight: bold;</string>
+           </property>
+           <property name="text">
+            <string>Запись успешно добавлена!</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="backMenuBtn">
+           <property name="styleSheet">
+            <string notr="true">QPushButton#backMenuBtn {
+     color: rgb(255, 255, 255);
+	background-color: rgb(120, 183, 140);
+	border: 1px solid #094065;
+	border-radius: 19px; 
+	padding: 10px;
+	font-size: 20px;
+ }
+ QPushButton#backMenuBtn:hover {
+     background-color: rgb(120, 170, 140);
+ }</string>
+           </property>
+           <property name="text">
+            <string>Назад</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="clearFormBtn">
+           <property name="styleSheet">
+            <string notr="true">QPushButton#clearFormBtn {
+     color: rgb(255, 255, 255);
+	background-color: rgb(120, 183, 140);
+	border: 1px solid #094065;
+	border-radius: 19px; 
+	padding: 10px;
+	font-size: 20px;
+ }
+ QPushButton#clearFormBtn:hover {
+     background-color: rgb(120, 170, 140);
+ }</string>
+           </property>
+           <property name="text">
+            <string>Очистить</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="addBtn">
+           <property name="styleSheet">
+            <string notr="true">QPushButton#addBtn {
+     color: rgb(255, 255, 255);
+	background-color: rgb(120, 183, 140);
+	border: 1px solid #094065;
+	border-radius: 19px; 
+	padding: 10px;
+	font-size: 20px;
+ }
+ QPushButton#addBtn:hover {
+     background-color: rgb(120, 170, 140);
+ }</string>
+           </property>
+           <property name="text">
+            <string>Добавить</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../Pictures/Images/add_expenses_form.qrc"/>
+ </resources>
+ <connections/>
+</ui>
