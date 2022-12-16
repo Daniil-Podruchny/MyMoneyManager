@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MyMoneyManager</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../Pictures/Images/design.qrc">
+    <normaloff>:/icons/dollar.ico</normaloff>:/icons/dollar.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>801</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="background_image_menu">
+     <property name="geometry">
+      <rect>
+       <x>-6</x>
+       <y>-5</y>
+       <width>811</width>
+       <height>611</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../../Pictures/Images/design.qrc">:/images/money_background.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>801</width>
+       <height>601</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_4">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <spacer name="verticalSpacer_12">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="showExpensesFormBtn">
+           <property name="styleSheet">
+            <string notr="true">QPushButton#showExpensesFormBtn {
+     color: rgb(255, 255, 255);
+	background-color: rgb(120, 183, 140);
+	border: 1px solid #094065;
+	border-radius: 19px; 
+	padding: 15px;
+	font-size: 20px;
+ }
+ QPushButton#showExpensesFormBtn:hover {
+     background-color: rgb(120, 170, 140);
+ }</string>
+           </property>
+           <property name="text">
+            <string>Записать расходы</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="showStatisticFormBtn">
+           <property name="styleSheet">
+            <string notr="true">QPushButton#showStatisticFormBtn {
+     color: rgb(255, 255, 255);
+	background-color: rgb(120, 183, 140);
+	border: 1px solid #094065;
+	border-radius: 19px; 
+	padding: 15px;
+	font-size: 20px;
+ }
+ QPushButton#showStatisticFormBtn:hover {
+     background-color: rgb(120, 170, 140);
+ }</string>
+           </property>
+           <property name="text">
+            <string>Получить статистику</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_5">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="showAimsFormBtn">
+           <property name="styleSheet">
+            <string notr="true">QPushButton#showAimsFormBtn {
+     color: rgb(255, 255, 255);
+	background-color: rgb(120, 183, 140);
+	border: 1px solid #094065;
+	border-radius: 19px; 
+	padding: 15px;
+	font-size: 20px;
+ }
+ QPushButton#showAimsFormBtn:hover {
+     background-color: rgb(120, 170, 140);
+ }</string>
+           </property>
+           <property name="text">
+            <string>Мои цели</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="showRecommendationFormBtn">
+           <property name="styleSheet">
+            <string notr="true">QPushButton#showRecommendationFormBtn {
+     color: rgb(255, 255, 255);
+	background-color: rgb(120, 183, 140);
+	border: 1px solid #094065;
+	border-radius: 19px; 
+	padding: 15px;
+	font-size: 20px;
+ }
+ QPushButton#showRecommendationFormBtn:hover {
+     background-color: rgb(120, 170, 140);
+ }</string>
+           </property>
+           <property name="text">
+            <string>Рекомендации</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../Pictures/Images/design.qrc"/>
+ </resources>
+ <connections/>
+</ui>
