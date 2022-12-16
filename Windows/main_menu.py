@@ -29,3 +29,4 @@ class MainMenu(QtWidgets.QMainWindow, main_menu.Ui_MainWindow):
     def showStatisticForm(self):
         self.hide()
         self.statistic_form.show()
+        self.statistic_form.fill_statistic_table()

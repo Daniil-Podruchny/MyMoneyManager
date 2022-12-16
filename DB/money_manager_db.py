@@ -1,7 +1,6 @@
 from . import create_money_manager_db
 from DB.conn_db import Database
-import os
-import sqlite3
+from Windows.Utils import checks as ch
 
 class MoneyManagerDb():
     def __init__(self):
@@ -34,4 +33,16 @@ class MoneyManagerDb():
             self.cursor.execute(insert_profit, data_tuple)
 
         self.conn.commit()
+
+    def getAllRecords(self):
+        self.cursor.execute("SELECT * from expenses")
+        all_expenses = self.cursor.fetchall()
+
+        self.cursor.execute("SELECT * from profits")
+        all_profits = self.cursor.fetchall()
+
+        all_records = all_expenses + all_profits
+
+        result_array = ch.tupleArr_ArrArr(all_records)
+        return result_array
         

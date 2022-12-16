@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 684)
+        MainWindow.resize(799, 684)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/Icons/dollar.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -38,15 +38,17 @@ class Ui_MainWindow(object):
         self.frame_2.setObjectName("frame_2")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_2)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.statisticTable = QtWidgets.QTableView(self.frame_2)
-        self.statisticTable.setObjectName("statisticTable")
-        self.verticalLayout.addWidget(self.statisticTable)
         self.frame_3 = QtWidgets.QFrame(self.frame_2)
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.frame_3)
-        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.frame_3)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.statisticTable = QtWidgets.QTableWidget(self.frame_3)
+        self.statisticTable.setObjectName("statisticTable")
+        self.statisticTable.setColumnCount(0)
+        self.statisticTable.setRowCount(0)
+        self.verticalLayout_2.addWidget(self.statisticTable)
         self.backMenuBtn = QtWidgets.QPushButton(self.frame_3)
         self.backMenuBtn.setStyleSheet("QPushButton#backMenuBtn {\n"
 "     color: rgb(255, 255, 255);\n"
@@ -60,7 +62,7 @@ class Ui_MainWindow(object):
 "     background-color: rgb(120, 170, 140);\n"
 " }")
         self.backMenuBtn.setObjectName("backMenuBtn")
-        self.horizontalLayout.addWidget(self.backMenuBtn)
+        self.verticalLayout_2.addWidget(self.backMenuBtn)
         self.verticalLayout.addWidget(self.frame_3)
         self.diagram_frame = QtWidgets.QFrame(self.frame)
         self.diagram_frame.setGeometry(QtCore.QRect(-1, -1, 801, 291))

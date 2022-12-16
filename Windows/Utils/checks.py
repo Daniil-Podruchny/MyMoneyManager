@@ -11,3 +11,9 @@ def isCorrectSum(obj, sum):
         return True
     else:
         QMessageBox.about(obj, "Ошибка добавления", "Введите корректное значение для поля 'сумма'!")
+
+def tupleArr_ArrArr(tupleArray):
+    result_array = []
+    for tuple in tupleArray:
+        result_array.append(list(tuple))
+    return result_array
