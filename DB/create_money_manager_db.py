@@ -11,7 +11,7 @@ def create_db():
                             , expense_category_id INTEGER NOT NULL
                             , expense_sum INTEGER NOT NULL
                             , expense_date TEXT NOT NULL
-                            , FOREIGN KEY (expense_category_id) REFERENCES categories(category_id)				
+                            , FOREIGN KEY (expense_category_id) REFERENCES categories(id)				
                             )''')
 
     cursor.execute('''CREATE TABLE profits (
@@ -20,12 +20,11 @@ def create_db():
                             , profit_category_id INTEGER NOT NULL
                             , profit_sum INTEGER NOT NULL
                             , profit_date TEXT NOT NULL
-                            , FOREIGN KEY (profit_category_id) REFERENCES categories(category_id)					
+                            , FOREIGN KEY (profit_category_id) REFERENCES categories(id)					
                             )''')
 
     cursor.execute('''CREATE TABLE categories (
-                            id INTEGER PRIMARY KEY AUTOINCREMENT 
-                            , category_id INTEGER NOT NULL								
+                            id INTEGER PRIMARY KEY AUTOINCREMENT 							
                             , category_name TEXT								
                             )''')
     
