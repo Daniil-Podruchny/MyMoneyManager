@@ -44,5 +44,33 @@ class MoneyManagerDb():
         all_records = all_expenses + all_profits
 
         result_array = ch.tupleArr_ArrArr(all_records)
+
+        for record in result_array:
+            record[2] = self.getCategoryName(record[2])
+
         return result_array
+
+    def getCategoryName(self, category_id):
+        self.cursor.execute("SELECT category_name from categories where id = '{}'".format(category_id))
+        return self.cursor.fetchone()[0]
+
+    def getCostsAndCategories(self):
+        self.cursor.execute("SELECT expense_sum, expense_category_id from expenses")
+        result_array = self.cursor.fetchall()
+
+        records = ch.tupleArr_ArrArr(result_array)
+
+        categories_dict = {}
+
+        for record in records:
+            record[1] = self.getCategoryName(record[1])
+
+            if record[1] in categories_dict:
+                categories_dict[record[1]] += record[0]
+            else:
+                categories_dict[record[1]] = record[0]
+        
+        return categories_dict
+
+        
         

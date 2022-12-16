@@ -120,7 +120,7 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="DiagramWidget" name="statisticDiagramWidget" native="true">
+     <widget class="MplWidget" name="MplWidget" native="true">
       <property name="geometry">
        <rect>
         <x>-1</x>
@@ -136,9 +136,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>DiagramWidget</class>
+   <class>MplWidget</class>
    <extends>QWidget</extends>
-   <header>pyqtdiagram</header>
+   <header>mplwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

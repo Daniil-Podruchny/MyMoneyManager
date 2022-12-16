@@ -69,9 +69,9 @@ class Ui_MainWindow(object):
         self.diagram_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.diagram_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.diagram_frame.setObjectName("diagram_frame")
-        # self.statisticDiagramWidget = DiagramWidget(self.diagram_frame)
-        # self.statisticDiagramWidget.setGeometry(QtCore.QRect(-1, -1, 801, 291))
-        # self.statisticDiagramWidget.setObjectName("statisticDiagramWidget")
+        self.MplWidget = MplWidget(self.diagram_frame)
+        self.MplWidget.setGeometry(QtCore.QRect(-1, -1, 801, 291))
+        self.MplWidget.setObjectName("MplWidget")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -81,7 +81,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MyMoneyManager"))
         self.backMenuBtn.setText(_translate("MainWindow", "Назад"))
-# from pyqtdiagram import DiagramWidget
+from Windows.Utils.mplwidget import MplWidget
 from Pictures.Images import statistic_resource
 
 
