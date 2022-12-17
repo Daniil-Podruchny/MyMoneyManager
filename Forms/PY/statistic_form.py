@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(793, 684)
+        MainWindow.resize(800, 690)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/Icons/dollar.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -26,13 +26,13 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.label = QtWidgets.QLabel(self.frame)
-        self.label.setGeometry(QtCore.QRect(0, 0, 801, 691))
+        self.label.setGeometry(QtCore.QRect(0, 0, 811, 691))
         self.label.setText("")
         self.label.setPixmap(QtGui.QPixmap(":/Pictures/money_background.jpg"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame_2 = QtWidgets.QFrame(self.frame)
-        self.frame_2.setGeometry(QtCore.QRect(-20, 290, 831, 401))
+        self.frame_2.setGeometry(QtCore.QRect(0, 290, 801, 411))
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
@@ -88,7 +88,7 @@ class Ui_MainWindow(object):
         self.diagram_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.diagram_frame.setObjectName("diagram_frame")
         self.MplWidget = MplWidget(self.diagram_frame)
-        self.MplWidget.setGeometry(QtCore.QRect(-1, -1, 801, 291))
+        self.MplWidget.setGeometry(QtCore.QRect(-1, -1, 811, 291))
         self.MplWidget.setObjectName("MplWidget")
         MainWindow.setCentralWidget(self.centralwidget)
 

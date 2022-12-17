@@ -52,6 +52,8 @@ class MoneyManagerDb():
         for record in result_array:
             record[2] = self.getCategoryName(record[2])
 
+        result_array = sorted(result_array, reverse=True, key=lambda x:datetime.strptime(x[4],"%d.%m.%Y"))
+
         return result_array
 
     def getCategoryName(self, category_id):
@@ -83,7 +85,6 @@ class MoneyManagerDb():
         expenses = self.cursor.fetchall()
         expenses_array = ch.tupleArr_ArrArr(expenses)
         
-        print(expenses_array)
         for expense in expenses_array:
             if expense[0].split(".")[1] == str(self.currentMonth):
                 result_sum -= expense[1]

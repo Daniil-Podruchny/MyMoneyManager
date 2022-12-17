@@ -8,9 +8,11 @@ class StatisticForm(QtWidgets.QMainWindow, statistic_form.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.setFixedSize(800, 690)
         self.money_manager_db = money_manager_db.MoneyManagerDb()
         self.all_records = self.money_manager_db.getAllRecords()
         self.records_id = []
+        self.rows = []
 
     def fill_statistic_table(self):
         current_records = self.money_manager_db.getAllRecords()
@@ -36,15 +38,16 @@ class StatisticForm(QtWidgets.QMainWindow, statistic_form.Ui_MainWindow):
 
     def addTableRow(self, table, row_data, flag):
         row = table.rowCount()
+        self.rows.append(row)
         table.setRowCount(row + 1)
         col = 0
 
-        del_btn = QPushButton(table)
-        del_btn.setText("Удалить")
-        del_btn.setStyleSheet("QPushButton {background-color: rgb(170, 0, 0); border: 1px solid #094065; border-radius: 15px; padding: 5px; font-size: 15px; color: rgb(255,255,255)} QPushButton::hover {background-color: rgb(150, 0, 0)}")
-        red_btn = QPushButton(table)
-        red_btn.setText("Редактировать")
-        red_btn.setStyleSheet("QPushButton {background-color: rgb(223, 152, 52); border: 1px solid #094065; border-radius: 15px; padding: 5px; font-size: 15px; color: rgb(255,255,255)} QPushButton::hover {	background-color: rgb(198, 141, 8);}")
+        self.del_btn = QPushButton(table)
+        self.del_btn.setText("Удалить")
+        self.del_btn.setStyleSheet("QPushButton {background-color: rgb(170, 0, 0); border: 1px solid #094065; border-radius: 15px; padding: 5px; font-size: 15px; color: rgb(255,255,255)} QPushButton::hover {background-color: rgb(150, 0, 0)}")
+        self.red_btn = QPushButton(table)
+        self.red_btn.setText("Редактировать")
+        self.red_btn.setStyleSheet("QPushButton {background-color: rgb(223, 152, 52); border: 1px solid #094065; border-radius: 15px; padding: 5px; font-size: 15px; color: rgb(255,255,255)} QPushButton::hover {	background-color: rgb(198, 141, 8);}")
 
         for item in row_data:
             cell = QTableWidgetItem(f"+{item}₽") if (col == 2 and flag) else QTableWidgetItem(f"-{item}₽") if (col == 2 and not flag) else QTableWidgetItem(str(item))
@@ -53,6 +56,23 @@ class StatisticForm(QtWidgets.QMainWindow, statistic_form.Ui_MainWindow):
             table.setItem(row, col, cell)
             col += 1
 
-        table.setCellWidget(row, col, del_btn)
-        table.setCellWidget(row, col + 1, red_btn)
+        table.setCellWidget(row, col, self.del_btn)
+        table.setCellWidget(row, col + 1, self.red_btn)
+
+        # print(self.rows)
+
+    #     self.del_btn.clicked.connect(lambda: self.deleteButtonClick(row, self.rows))
+
+    # def deleteButtonClick(self, row, rows):
+    #     statistic_table = self.statisticTable
+    #     # # statistic_table.selected
+
+    #     # # for i in range(4):
+    #     # #     print(statistic_table.item(row, i).text())
+    #     statistic_table.removeRow(row)
+    #     # # print("Ряд: ", row)
+
+    #     # print(statistic_table.item(statistic_table.currentRow(), row).text())
+    #     print(row)
+
 

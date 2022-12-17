@@ -9,6 +9,7 @@ class ExpensesForm(QtWidgets.QMainWindow, expenses_form.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.setFixedSize(798, 600)
         self.money_manager_db = money_manager_db.MoneyManagerDb()
         categories = self.money_manager_db.getCategories()
         self.expenseCategoryComboBox.addItems(categories[:9])
