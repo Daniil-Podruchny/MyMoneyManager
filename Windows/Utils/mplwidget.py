@@ -9,10 +9,6 @@ class MplWidget(QTabWidget):
         QWidget.__init__(self, parent)
 
         self.money_manager_db = money_manager_db.MoneyManagerDb()
-        self.draw_diagram()
-        
-
-    def draw_diagram(self):
         category_dict = self.money_manager_db.getCostsAndCategories()
 
         self.canvas = FigureCanvas(Figure())
@@ -23,6 +19,5 @@ class MplWidget(QTabWidget):
         self.canvas.ax = self.canvas.figure.add_subplot()
         self.canvas.ax.pie(list(category_dict.values()), labels=list(category_dict))
         self.canvas.ax.axis("equal")
+
         self.setLayout(vertical_layout)
-
-

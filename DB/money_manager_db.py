@@ -41,6 +41,10 @@ class MoneyManagerDb():
         self.cursor.execute("SELECT * from profits")
         all_profits = self.cursor.fetchall()
 
+        all_profits = ch.tupleArr_ArrArr(all_profits)
+        for profit in all_profits:
+            profit[0] = str(profit[0]) + "p"
+
         all_records = all_expenses + all_profits
 
         result_array = ch.tupleArr_ArrArr(all_records)
