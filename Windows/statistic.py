@@ -10,35 +10,29 @@ class StatisticForm(QtWidgets.QMainWindow, statistic_form.Ui_MainWindow):
         self.setupUi(self)
         self.money_manager_db = money_manager_db.MoneyManagerDb()
         self.all_records = self.money_manager_db.getAllRecords()
-        self.current_record_count = 0
         self.records_id = []
 
     def fill_statistic_table(self):
         current_records = self.money_manager_db.getAllRecords()
 
-        if len(current_records) != self.current_record_count:
-            statistic_table = self.statisticTable
-            statistic_table.setColumnCount(6)
+        statistic_table = self.statisticTable
+        statistic_table.setColumnCount(6)
 
-            statistic_table.setHorizontalHeaderLabels(["Название", "Категория", "Сумма", "Дата", "", ""])
-            statistic_table.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-            statistic_table.verticalHeader().setVisible(False)
-            statistic_table.setShowGrid(False)
+        statistic_table.setHorizontalHeaderLabels(["Название", "Категория", "Сумма", "Дата", "", ""])
+        statistic_table.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        statistic_table.verticalHeader().setVisible(False)
+        statistic_table.setShowGrid(False)
 
-            for record in current_records:
-                if record[0] not in self.records_id:
-                    self.records_id.append(record[0])
+        for record in current_records:
+            if record[0] not in self.records_id:
+                self.records_id.append(record[0])
 
-                    flag = False if str(record[0]).isdigit() else True
+                flag = False if str(record[0]).isdigit() else True
 
-                    record = record[1:]
-                    self.addTableRow(statistic_table, record, flag)
-                else:
-                    continue
-
-            self.current_record_count = len(current_records)
-        else:
-            return
+                record = record[1:]
+                self.addTableRow(statistic_table, record, flag)
+            else:
+                continue
 
     def addTableRow(self, table, row_data, flag):
         row = table.rowCount()
