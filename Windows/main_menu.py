@@ -34,6 +34,7 @@ class MainMenu(QtWidgets.QMainWindow, main_menu.Ui_MainWindow):
 
         self.refresh_diagram()
         self.statistic_form.fill_statistic_table()
+        self.setMonthReport()
 
     def refresh_diagram(self):
         self.statistic_form.MplWidget.canvas.ax.clear()
@@ -42,4 +43,15 @@ class MainMenu(QtWidgets.QMainWindow, main_menu.Ui_MainWindow):
         self.statistic_form.MplWidget.canvas.ax.pie(list(categories_dict.values()), labels=list(categories_dict))
 
         self.statistic_form.MplWidget.canvas.draw()
+
+    def setMonthReport(self):
+        sum, month = self.money_manager_db.getMonthReport()
+        if sum > 0: 
+            sum = f"+{sum}"
+            self.statistic_form.resultLbl.setStyleSheet("background-color: rgb(0, 179, 255); color: rgb(255, 255, 255); border: 1px solid #094065; border-radius: 19px; padding: 10px; font-size: 20px;")
+            self.statistic_form.resultLbl.setText(f"Итог за {month}: {sum}₽")
+        else:
+            self.statistic_form.resultLbl.setStyleSheet("background-color: rgb(150, 0, 0); color: rgb(255, 255, 255); border: 1px solid #094065; border-radius: 19px; padding: 10px; font-size: 20px;")
+            self.statistic_form.resultLbl.setText(f"Итог за {month}: {sum}₽")
+
 

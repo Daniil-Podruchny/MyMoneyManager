@@ -1,6 +1,6 @@
-from . import create_money_manager_db
 from DB.conn_db import Database
 from Windows.Utils import checks as ch
+from datetime import datetime
 
 class MoneyManagerDb():
     def __init__(self):
@@ -76,5 +76,26 @@ class MoneyManagerDb():
         
         return categories_dict
 
+    def getMonthReport(self):
+        self.currentMonth = datetime.today().month
+        result_sum = 0
+        self.cursor.execute("SELECT expense_date, expense_sum from expenses")
+        expenses = self.cursor.fetchall()
+        expenses_array = ch.tupleArr_ArrArr(expenses)
+        
+        print(expenses_array)
+        for expense in expenses_array:
+            if expense[0].split(".")[1] == str(self.currentMonth):
+                result_sum -= expense[1]
+
+        self.cursor.execute("SELECT profit_date, profit_sum from profits")
+        profits = self.cursor.fetchall()
+        profits_array = ch.tupleArr_ArrArr(profits)
+
+        for profit in profits_array:
+            if profit[0].split(".")[1] == str(self.currentMonth):
+                result_sum += profit[1]
+
+        return result_sum, ch.getMonthName(self.currentMonth)
         
         

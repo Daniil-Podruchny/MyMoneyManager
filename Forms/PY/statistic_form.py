@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(799, 684)
+        MainWindow.resize(793, 684)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/Icons/dollar.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -32,7 +32,7 @@ class Ui_MainWindow(object):
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame_2 = QtWidgets.QFrame(self.frame)
-        self.frame_2.setGeometry(QtCore.QRect(0, 290, 801, 401))
+        self.frame_2.setGeometry(QtCore.QRect(-20, 290, 831, 401))
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
@@ -49,7 +49,24 @@ class Ui_MainWindow(object):
         self.statisticTable.setColumnCount(0)
         self.statisticTable.setRowCount(0)
         self.verticalLayout_2.addWidget(self.statisticTable)
-        self.backMenuBtn = QtWidgets.QPushButton(self.frame_3)
+        self.frame_4 = QtWidgets.QFrame(self.frame_3)
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.frame_4)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.resultLbl = QtWidgets.QLabel(self.frame_4)
+        self.resultLbl.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: 1px solid #094065;\n"
+"border-radius: 19px; \n"
+"background-color: rgb(0, 179, 255);\n"
+"padding: 10px;\n"
+"font-size: 20px;\n"
+"")
+        self.resultLbl.setText("")
+        self.resultLbl.setObjectName("resultLbl")
+        self.horizontalLayout.addWidget(self.resultLbl)
+        self.backMenuBtn = QtWidgets.QPushButton(self.frame_4)
         self.backMenuBtn.setStyleSheet("QPushButton#backMenuBtn {\n"
 "     color: rgb(255, 255, 255);\n"
 "    background-color: rgb(120, 183, 140);\n"
@@ -62,7 +79,8 @@ class Ui_MainWindow(object):
 "     background-color: rgb(120, 170, 140);\n"
 " }")
         self.backMenuBtn.setObjectName("backMenuBtn")
-        self.verticalLayout_2.addWidget(self.backMenuBtn)
+        self.horizontalLayout.addWidget(self.backMenuBtn)
+        self.verticalLayout_2.addWidget(self.frame_4)
         self.verticalLayout.addWidget(self.frame_3)
         self.diagram_frame = QtWidgets.QFrame(self.frame)
         self.diagram_frame.setGeometry(QtCore.QRect(-1, -1, 801, 291))
