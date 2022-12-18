@@ -1,4 +1,5 @@
 from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtCore import QDate
 from Forms.PY import aims_form
 from .Utils import checks as ch
@@ -52,9 +53,11 @@ class AimsForm(QtWidgets.QMainWindow, aims_form.Ui_MainWindow):
             return
         else:        
             for item in listItems:
-                id = int(self.aimList.currentItem().text().split("\t")[0].split(" ")[1])
-                self.money_manager_db.delete_aim_record(id)
-                self.aimList.takeItem(self.aimList.row(item))
+                button = QMessageBox.question( self, 'Подтверждение', 'Вы уверены что хотите удалить запись?', QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No )
+                if button == QMessageBox.StandardButton.Yes:
+                    id = int(self.aimList.currentItem().text().split("\t")[0].split(" ")[1])
+                    self.money_manager_db.delete_aim_record(id)
+                    self.aimList.takeItem(self.aimList.row(item))
 
     def clear_row(self):
         listItems = self.aimList.selectedItems()
@@ -79,7 +82,6 @@ class AimsForm(QtWidgets.QMainWindow, aims_form.Ui_MainWindow):
                 for el in array_to_redact:
                     result_redact_array.append(el.split(": ")[1])
 
-                print(result_redact_array)
                 self.redact_form.saveChangeBtn.clicked.connect(lambda: self.updateAimRecord(result_redact_array[0]))
 
                 self.redact_form.aimChgNameEdit.setText(result_redact_array[1])
