@@ -91,7 +91,7 @@ class AimsForm(QtWidgets.QMainWindow, aims_form.Ui_MainWindow):
         
     def destroyRedactWindow(self):
         self.show()
-        self.redact_form.destroy()
+        self.redact_form.close()
 
     def updateAimRecord(self, id):
         new_aim_name = self.redact_form.aimChgNameEdit.text()
