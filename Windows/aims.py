@@ -3,6 +3,7 @@ from PyQt5.QtCore import QDate
 from Forms.PY import aims_form
 from .Utils import checks as ch
 from DB import money_manager_db
+from . import redact
 
 
 class AimsForm(QtWidgets.QMainWindow, aims_form.Ui_MainWindow):
@@ -46,7 +47,7 @@ class AimsForm(QtWidgets.QMainWindow, aims_form.Ui_MainWindow):
         self.aimDateEdit.setDate(self.currentDate)
 
     def delete_aim_record(self):
-        listItems=self.aimList.selectedItems()
+        listItems = self.aimList.selectedItems()
         if ch.isSelected(self, listItems):
             return
         else:        
@@ -56,5 +57,34 @@ class AimsForm(QtWidgets.QMainWindow, aims_form.Ui_MainWindow):
                 self.aimList.takeItem(self.aimList.row(item))
 
     def redact_aim_record(self):
-        pass
+        self.redact_form = redact.RedactForm()
+        self.redact_form.cancelRedactBtn.clicked.connect(self.destroyRedactWindow)
+        result_redact_array = []
+
+        listItems = self.aimList.selectedItems()
+        if ch.isSelected(self, listItems):
+            return
+        else:
+            for item in listItems:
+                id = int(self.aimList.currentItem().text().split("\t")[0].split(" ")[1])
+                array_to_redact = self.aimList.currentItem().text().split("\t")
+
+                for el in array_to_redact:
+                    result_redact_array.append(el.split(" ")[1])
+
+                print(result_redact_array)
+                self.redact_form.saveChangeBtn.clicked.connect(self.updateAimRecord)
+
+                self.redact_form.aimChgNameEdit.setText(result_redact_array[1])
+                self.redact_form.aimChgSumEdit.setText(result_redact_array[2])
+                self.redact_form.aimChgDateEdit.setDate(QDate.fromString(result_redact_array[3], "dd.MM.yyyy"))
+
+                self.redact_form.show()
+                self.hide()
         
+    def destroyRedactWindow(self):
+        self.show()
+        self.redact_form.destroy()
+
+    def updateAimRecord(self):
+        pass
