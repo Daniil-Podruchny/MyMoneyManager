@@ -39,7 +39,7 @@ class AimsForm(QtWidgets.QMainWindow, aims_form.Ui_MainWindow):
         for aim in aims:
             if aim[0] not in self.array_of_ids:
                 self.array_of_ids.append(aim[0])
-                self.aimList.addItem(f"Id: {aim[0]}\tНазвание: {aim[1]}\tсумма: {aim[2]}\tдо {aim[3]}")
+                self.aimList.addItem(f"Id: {aim[0]}\tНазвание: {aim[1]}\tсумма: {aim[2]}\tдо: {aim[3]}")
 
     def clear_forms(self):
         self.aimNameEdit.clear()
@@ -56,6 +56,14 @@ class AimsForm(QtWidgets.QMainWindow, aims_form.Ui_MainWindow):
                 self.money_manager_db.delete_aim_record(id)
                 self.aimList.takeItem(self.aimList.row(item))
 
+    def clear_row(self):
+        listItems = self.aimList.selectedItems()
+        if ch.isSelected(self, listItems):
+            return
+        else:
+            for item in listItems:
+                self.aimList.takeItem(self.aimList.row(item))
+
     def redact_aim_record(self):
         self.redact_form = redact.RedactForm()
         self.redact_form.cancelRedactBtn.clicked.connect(self.destroyRedactWindow)
@@ -66,14 +74,13 @@ class AimsForm(QtWidgets.QMainWindow, aims_form.Ui_MainWindow):
             return
         else:
             for item in listItems:
-                id = int(self.aimList.currentItem().text().split("\t")[0].split(" ")[1])
                 array_to_redact = self.aimList.currentItem().text().split("\t")
 
                 for el in array_to_redact:
-                    result_redact_array.append(el.split(" ")[1])
+                    result_redact_array.append(el.split(": ")[1])
 
                 print(result_redact_array)
-                self.redact_form.saveChangeBtn.clicked.connect(self.updateAimRecord)
+                self.redact_form.saveChangeBtn.clicked.connect(lambda: self.updateAimRecord(result_redact_array[0]))
 
                 self.redact_form.aimChgNameEdit.setText(result_redact_array[1])
                 self.redact_form.aimChgSumEdit.setText(result_redact_array[2])
@@ -86,5 +93,16 @@ class AimsForm(QtWidgets.QMainWindow, aims_form.Ui_MainWindow):
         self.show()
         self.redact_form.destroy()
 
-    def updateAimRecord(self):
-        pass
+    def updateAimRecord(self, id):
+        new_aim_name = self.redact_form.aimChgNameEdit.text()
+        new_aim_sum = self.redact_form.aimChgSumEdit.text()
+        new_aim_date = self.redact_form.aimChgDateEdit.text()
+
+        if not ch.isEmpty(self, new_aim_name, new_aim_sum, new_aim_date) and ch.isCorrectSum(self, new_aim_sum):
+                self.redact_form.infoLbl.show()
+                self.money_manager_db.update_aim_record(id, new_aim_name, new_aim_sum, new_aim_date)
+                self.clear_row()
+                self.array_of_ids.remove(int(id))
+                self.fill_aim_table()
+                self.destroyRedactWindow()
+

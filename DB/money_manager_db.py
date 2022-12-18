@@ -55,6 +55,12 @@ class MoneyManagerDb():
         self.cursor.execute('DELETE FROM aims WHERE id=?', (id,))
         self.conn.commit()
 
+    def update_aim_record(self, id, name, sum, date):
+        aim_update_query = """UPDATE aims set aim_name = ?, aim_sum = ?, aim_date = ? where id = ?"""
+        data = (name, sum, date, id)
+        self.cursor.execute(aim_update_query, data)
+        self.conn.commit()
+
     def getAllRecords(self):
         self.cursor.execute("SELECT * from expenses")
         all_expenses = self.cursor.fetchall()
