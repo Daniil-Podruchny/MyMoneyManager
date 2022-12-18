@@ -12,6 +12,10 @@ def isCorrectSum(obj, sum):
     else:
         QMessageBox.about(obj, "Ошибка добавления", "Введите корректное значение для поля 'сумма'!")
 
+def isSelected(obj, selectedItems):
+    if not selectedItems:
+        QMessageBox.about(obj, "Ошибка выбора", "Выберете элемент из списка, который хотите удалить!")
+
 def tupleArr_ArrArr(tupleArray):
     result_array = []
     for tuple in tupleArray:

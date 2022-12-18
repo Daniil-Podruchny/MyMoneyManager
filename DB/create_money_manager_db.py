@@ -27,5 +27,12 @@ def create_db():
                             id INTEGER PRIMARY KEY AUTOINCREMENT 							
                             , category_name TEXT								
                             )''')
+
+    cursor.execute('''CREATE TABLE aims (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT
+                            , aim_name TEXT NOT NULL
+                            , aim_sum INTEGER NOT NULL
+                            , aim_date TEXT NOT NULL
+                            )''')
     
     return conn, cursor

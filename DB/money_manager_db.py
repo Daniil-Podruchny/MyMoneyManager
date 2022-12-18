@@ -34,6 +34,27 @@ class MoneyManagerDb():
 
         self.conn.commit()
 
+    def add_aim_record(self, name, sum, date):
+        data_tuple = (name, sum, date)
+        insert_aim = """INSERT INTO aims
+                        (aim_name, aim_sum, aim_date)
+                        VALUES (?, ?, ?);"""
+        self.cursor.execute(insert_aim, data_tuple)
+        self.conn.commit()
+
+    def getAims(self):
+        self.cursor.execute("SELECT * from aims")
+        all_aims = self.cursor.fetchall()
+
+        all_aims = ch.tupleArr_ArrArr(all_aims)
+        all_aims = sorted(all_aims, reverse=True, key=lambda x:datetime.strptime(x[3], "%d.%m.%Y"))
+
+        return all_aims
+
+    def delete_aim_record(self, id):
+        self.cursor.execute('DELETE FROM aims WHERE id=?', (id,))
+        self.conn.commit()
+
     def getAllRecords(self):
         self.cursor.execute("SELECT * from expenses")
         all_expenses = self.cursor.fetchall()
